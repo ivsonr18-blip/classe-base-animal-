@@ -1,0 +1,132 @@
+class Animal {
+    String nome;
+    String especie;
+
+    public Animal(String nome, String especie) {
+        this.nome = nome;
+        this.especie = especie;
+    }
+
+    public void comer() {
+        System.out.println(nome + " está comendo.");
+    }
+
+    public void mover() {
+        System.out.println(nome + " está se movimentando.");
+    }
+}
+
+//  Cavalo
+class Cavalo extends Animal {
+    public Cavalo(String nome, String especie) {
+        super(nome, especie);
+    }
+
+    public void relinchar() {
+        System.out.println(nome + " está relinchando: hiiiiin!");
+    }
+
+    public void galopar() {
+        System.out.println(nome + " está galopando rápido!");
+    }
+}
+
+//  Leão
+class Leao extends Animal {
+    public Leao(String nome, String especie) {
+        super(nome, especie);
+    }
+
+    public void rugir() {
+        System.out.println(nome + " está rugindo: Rooooar!");
+    }
+
+    @Override
+    public void mover() {
+        System.out.println(nome + " está andando de forma imponente.");
+    }
+}
+
+//  Cobra
+class Cobra extends Animal {
+    public Cobra(String nome, String especie) {
+        super(nome, especie);
+    }
+
+    public void sibilar() {
+        System.out.println(nome + " está sibilando: sssssss!");
+    }
+
+    @Override
+    public void mover() {
+        System.out.println(nome + " está rastejando pelo chão.");
+    }
+}
+
+// Águia
+class Aguia extends Animal {
+    public Aguia(String nome, String especie) {
+        super(nome, especie);
+    }
+
+    public void voar() {
+        System.out.println(nome + " está voando alto nos céus.");
+    }
+
+    @Override
+    public void mover() {
+        System.out.println(nome + " está planando com suas asas.");
+    }
+}
+
+//  Elefante
+class Elefante extends Animal {
+    public Elefante(String nome, String especie) {
+        super(nome, especie);
+    }
+
+    public void trombar() {
+        System.out.println(nome + " está tocando a tromba: pruuuu!");
+    }
+
+    @Override
+    public void mover() {
+        System.out.println(nome + " está andando lentamente e balançando.");
+    }
+}
+
+public class Zoologico {
+    public static void main(String[] args) {
+        Cavalo cavalo = new Cavalo("Spirit", "Mustang");
+        Leao leao = new Leao("Simba", "Africano");
+        Cobra cobra = new Cobra("Nagini", "Cobra-rei");
+        Aguia aguia = new Aguia("Falcão", "Águia-real");
+        Elefante elefante = new Elefante("Dumbo", "Elefante-da-savana");
+
+        System.out.println("--- Cavalo ---");
+        cavalo.comer();
+        cavalo.mover();
+        cavalo.relinchar();
+        cavalo.galopar();
+
+        System.out.println("\n--- Leão ---");
+        leao.comer();
+        leao.mover();
+        leao.rugir();
+
+        System.out.println("\n--- Cobra ---");
+        cobra.comer();
+        cobra.mover();
+        cobra.sibilar();
+
+        System.out.println("\n--- Águia ---");
+        aguia.comer();
+        aguia.mover();
+        aguia.voar();
+
+        System.out.println("\n--- Elefante ---");
+        elefante.comer();
+        elefante.mover();
+        elefante.trombar();
+    }
+}
