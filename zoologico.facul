@@ -1,132 +1,86 @@
+
+// Classe pai
 class Animal {
+    // Atributos
     String nome;
-    String especie;
+    String raca;
 
-    public Animal(String nome, String especie) {
+    // Construtor
+    public Animal(String nome, String raca) {
         this.nome = nome;
-        this.especie = especie;
+        this.raca = raca;
     }
 
+    // Método genérico
     public void comer() {
-        System.out.println(nome + " está comendo.");
+        System.out.println(nome + " da raça " + raca + " está comendo.");
     }
 
-    public void mover() {
-        System.out.println(nome + " está se movimentando.");
-    }
-}
-
-//  Cavalo
-class Cavalo extends Animal {
-    public Cavalo(String nome, String especie) {
-        super(nome, especie);
+    // Método genérico (pode ser sobrescrito pelas classes filhas)
+    public void andar() {
+        System.out.println(nome + " da raça " + raca + " está andando.");
     }
 
-    public void relinchar() {
-        System.out.println(nome + " está relinchando: hiiiiin!");
-    }
-
-    public void galopar() {
-        System.out.println(nome + " está galopando rápido!");
-    }
-}
-
-//  Leão
-class Leao extends Animal {
-    public Leao(String nome, String especie) {
-        super(nome, especie);
-    }
-
-    public void rugir() {
-        System.out.println(nome + " está rugindo: Rooooar!");
-    }
-
-    @Override
-    public void mover() {
-        System.out.println(nome + " está andando de forma imponente.");
-    }
-}
-
-//  Cobra
-class Cobra extends Animal {
-    public Cobra(String nome, String especie) {
-        super(nome, especie);
-    }
-
-    public void sibilar() {
-        System.out.println(nome + " está sibilando: sssssss!");
-    }
-
-    @Override
-    public void mover() {
-        System.out.println(nome + " está rastejando pelo chão.");
-    }
-}
-
-// Águia
-class Aguia extends Animal {
-    public Aguia(String nome, String especie) {
-        super(nome, especie);
-    }
-
+    // Método genérico (pode ser sobrescrito)
     public void voar() {
-        System.out.println(nome + " está voando alto nos céus.");
-    }
-
-    @Override
-    public void mover() {
-        System.out.println(nome + " está planando com suas asas.");
+        System.out.println(nome + " da raça " + raca + " está tentando voar...");
     }
 }
 
-//  Elefante
-class Elefante extends Animal {
-    public Elefante(String nome, String especie) {
-        super(nome, especie);
+// Classe filha: Cachorro
+class Cachorro extends Animal {
+    public Cachorro(String nome, String raca) {
+        super(nome, raca);
     }
 
-    public void trombar() {
-        System.out.println(nome + " está tocando a tromba: pruuuu!");
+    public void latir() {
+        System.out.println(nome + " está latindo: Au au!");
     }
 
+    // Sobrescrevendo andar
     @Override
-    public void mover() {
-        System.out.println(nome + " está andando lentamente e balançando.");
+    public void andar() {
+        System.out.println(nome + " da raça " + raca + " está correndo animado!");
     }
 }
 
-public class Zoologico {
+// Classe filha: Pássaro
+class Passaro extends Animal {
+    public Passaro(String nome, String raca) {
+        super(nome, raca);
+    }
+
+    public void cantar() {
+        System.out.println(nome + " está cantando: Piu piu!");
+    }
+
+    // Sobrescrevendo voar
+    @Override
+    public void voar() {
+        System.out.println(nome + " da raça " + raca + " está voando alto!");
+    }
+}
+
+// Classe principal
+public class Main {
     public static void main(String[] args) {
-        Cavalo cavalo = new Cavalo("Spirit", "Mustang");
-        Leao leao = new Leao("Simba", "Africano");
-        Cobra cobra = new Cobra("Nagini", "Cobra-rei");
-        Aguia aguia = new Aguia("Falcão", "Águia-real");
-        Elefante elefante = new Elefante("Dumbo", "Elefante-da-savana");
+        // Criando um cachorro
+        Cachorro meuCachorro = new Cachorro("Rex", "Pastor Alemão");
+        System.out.println("🐶 Nome: " + meuCachorro.nome + " | Raça: " + meuCachorro.raca);
+        meuCachorro.comer();
+        meuCachorro.andar();
+        meuCachorro.latir();
 
-        System.out.println("--- Cavalo ---");
-        cavalo.comer();
-        cavalo.mover();
-        cavalo.relinchar();
-        cavalo.galopar();
+        System.out.println();
 
-        System.out.println("\n--- Leão ---");
-        leao.comer();
-        leao.mover();
-        leao.rugir();
-
-        System.out.println("\n--- Cobra ---");
-        cobra.comer();
-        cobra.mover();
-        cobra.sibilar();
-
-        System.out.println("\n--- Águia ---");
-        aguia.comer();
-        aguia.mover();
-        aguia.voar();
-
-        System.out.println("\n--- Elefante ---");
-        elefante.comer();
-        elefante.mover();
-        elefante.trombar();
+        // Criando um pássaro
+        Passaro meuPassaro = new Passaro("Loro", "Canário");
+        System.out.println("🐦 Nome: " + meuPassaro.nome + " | Raça: " + meuPassaro.raca);
+        meuPassaro.comer();
+        meuPassaro.voar();
+        meuPassaro.cantar();
     }
 }
+
+    
+
